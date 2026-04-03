@@ -1,28 +1,33 @@
+<!--
+  ╔══════════════════════════════════════════════════════════════╗
+  ║  FREEMAN ACADEMY — BOOTCAMP LANDING PAGE                    ║
+  ║                                                              ║
+  ║  INTÉGRATION ELEMENTOR (2 options) :                         ║
+  ║                                                              ║
+  ║  OPTION 1 — IFRAME (simple) :                                ║
+  ║  Widget HTML > coller :                                      ║
+  ║  <iframe src="https://baltic-15551.github.io/freeman-bootcamp/"
+  ║    width="100%" height="6000" frameborder="0"                ║
+  ║    style="border:none" loading="lazy"></iframe>               ║
+  ║                                                              ║
+  ║  OPTION 2 — EMBED DIRECT (meilleur PageSpeed) :              ║
+  ║  Widget HTML > coller tout le code de ce fichier             ║
+  ║  directement dans le widget. Pas d'iframe = pas de           ║
+  ║  pénalité PageSpeed.                                         ║
+  ╚══════════════════════════════════════════════════════════════╝
+-->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Bootcamp Trading - Freeman Academy</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      --bg:#0b0e1a;
-      --bg2:#0e1221;
-      --card:#111628;
-      --card-b:rgba(255,255,255,0.07);
-      --card-bh:rgba(255,255,255,0.13);
-      --yellow:#f5a623;
-      --yellow-l:#ffc84a;
-      --cyan:#2dd4bf;
-      --cyan-g:rgba(45,212,191,0.2);
-      --white:#f2f2f7;
-      --gray:#9ca3af;
-      --gray-d:#6b7280;
-      --font:'Inter',-apple-system,sans-serif;
-    }
+    :root{--bg:#0b0e1a;--bg2:#0e1221;--card:#111628;--card-b:rgba(255,255,255,0.07);--card-bh:rgba(255,255,255,0.13);--yellow:#f5a623;--yellow-l:#ffc84a;--cyan:#2dd4bf;--cyan-g:rgba(45,212,191,0.2);--white:#f2f2f7;--gray:#9ca3af;--gray-d:#6b7280;--font:'Inter',-apple-system,sans-serif}
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{font-family:var(--font);background:var(--bg);color:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -58,7 +63,6 @@
     .stars-row{color:var(--yellow);font-size:20px;letter-spacing:3px}
     .social-proof .label{color:var(--yellow);font-size:15px;font-weight:600}
 
-    /* ══ SECTION LABEL ══ */
     .section-label{text-align:center;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--yellow);margin-bottom:16px}
 
     /* ══ PROGRAM ══ */
@@ -80,31 +84,30 @@
     .day-card .day-title{font-size:17px;font-weight:700;line-height:1.35}
     .day-card .day-points{list-style:none;display:flex;flex-direction:column;gap:14px}
     .day-card .day-points li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--gray);line-height:1.55}
-    .day-card .day-points li .star-icon{min-width:16px;margin-top:2px}
-    .day-card .day-points li .star-icon svg{width:16px;height:16px;fill:var(--yellow);stroke:none}
+    .day-card .day-points li .si{min-width:16px;margin-top:2px}
+    .day-card .day-points li .si svg{width:16px;height:16px;fill:var(--yellow);stroke:none}
 
-    /* ══ PROOFS CAROUSEL ══ */
+    /* ══ CAROUSEL ══ */
     .proofs{padding:80px 0}
     .proofs h2{font-size:clamp(28px,4.5vw,44px);font-weight:800;text-align:center;margin-bottom:48px}
     .proofs h2 .hl{color:var(--yellow)}
-    .carousel-wrapper{position:relative;overflow:hidden;cursor:grab;-webkit-user-select:none;user-select:none;padding:8px 0}
-    .carousel-wrapper.dragging{cursor:grabbing}
-    .carousel-track{display:flex;gap:20px}
-    .carousel-track.animated{transition:transform .5s cubic-bezier(.25,1,.5,1)}
-    .carousel-wrapper.dragging .carousel-track{transition:none!important}
+    .cw{position:relative;overflow:hidden;cursor:grab;-webkit-user-select:none;user-select:none;padding:8px 0}
+    .cw.dragging{cursor:grabbing}
+    .ct{display:flex;gap:20px}
+    .ct.anim{transition:transform .5s cubic-bezier(.25,1,.5,1)}
+    .cw.dragging .ct{transition:none!important}
 
     .cert-slide{flex:0 0 calc(33.333% - 14px);background:var(--card);border:2px solid transparent;border-radius:16px;padding:16px;text-align:center;transition:all .4s cubic-bezier(.25,.8,.25,1)}
     .cert-slide:hover{border-color:var(--cyan);box-shadow:0 0 25px rgba(45,212,191,0.12);transform:translateY(-4px)}
-    .cert-slide .cert-img-wrap{width:100%;aspect-ratio:4/3;border-radius:10px;overflow:hidden;margin-bottom:14px;background:#fff;display:flex;align-items:center;justify-content:center}
-    .cert-slide .cert-img-wrap img{width:100%;height:100%;object-fit:contain;display:block}
-    .cert-slide .cert-label{display:inline-flex;align-items:center;gap:8px;color:var(--cyan);font-size:14px;font-weight:600}
-    .cert-label .check-circle{width:20px;height:20px;border-radius:50%;border:2px solid var(--cyan);display:inline-flex;align-items:center;justify-content:center;font-size:11px}
+    .cert-slide .ciw{width:100%;aspect-ratio:4/3;border-radius:10px;overflow:hidden;margin-bottom:14px;background:#fff;display:flex;align-items:center;justify-content:center}
+    .cert-slide .ciw img{width:100%;height:100%;object-fit:contain;display:block}
+    .cert-slide .cl{display:inline-flex;align-items:center;gap:8px;color:var(--cyan);font-size:14px;font-weight:600}
+    .cl .cc{width:20px;height:20px;border-radius:50%;border:2px solid var(--cyan);display:inline-flex;align-items:center;justify-content:center;font-size:11px}
     @media(max-width:768px){.cert-slide{flex:0 0 85%}}
 
-    .carousel-dots{display:flex;justify-content:center;gap:8px;margin:24px 0 40px}
-    .carousel-dots .dot{width:10px;height:10px;border-radius:50%;background:var(--gray-d);cursor:pointer;border:none;padding:0;transition:all .3s}
-    .carousel-dots .dot.active{background:var(--yellow);width:24px;border-radius:5px}
-
+    .cd{display:flex;justify-content:center;gap:8px;margin:24px 0 40px}
+    .cd .dot{width:10px;height:10px;border-radius:50%;background:var(--gray-d);cursor:pointer;border:none;padding:0;transition:all .3s}
+    .cd .dot.active{background:var(--yellow);width:24px;border-radius:5px}
     .cta-center{text-align:center}
     .cta-sub-label{display:block;margin-top:12px;color:var(--gray);font-size:14px}
 
@@ -125,12 +128,18 @@
     .btn-cyan:hover::after{left:100%}
     .btn-cyan:hover{transform:translateY(-2px);box-shadow:0 0 60px rgba(45,212,191,0.3)}
 
-    /* ══ VIDEO CAROUSEL ══ */
+    /* ══ VIDEO — LAZY FACADE ══ */
     .video-section{padding:80px 0}
     .video-section h2{font-size:clamp(28px,4.5vw,44px);font-weight:800;text-align:center;margin-bottom:48px}
     .video-section h2 .hl{color:var(--yellow)}
-    .vid-slide{flex:0 0 calc(33.333% - 14px);background:var(--card);border:1px solid var(--card-b);border-radius:16px;overflow:hidden;min-height:420px;transition:all .3s}
-    .vid-slide iframe{width:100%;height:100%;border:none;display:block;min-height:420px;pointer-events:auto}
+    .vid-slide{flex:0 0 calc(33.333% - 14px);background:var(--card);border:1px solid var(--card-b);border-radius:16px;overflow:hidden;min-height:420px;transition:all .3s;position:relative}
+    .vid-slide iframe{width:100%;height:100%;border:none;display:block;min-height:420px;position:absolute;inset:0}
+    .vid-facade{width:100%;height:100%;min-height:420px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;position:relative;background:linear-gradient(135deg,#151b30 0%,#1a2040 50%,#151b30 100%)}
+    .vid-facade .play-circle{width:68px;height:68px;border-radius:50%;background:rgba(245,166,35,0.9);display:flex;align-items:center;justify-content:center;transition:all .35s;box-shadow:0 0 30px rgba(245,166,35,0.3)}
+    .vid-facade:hover .play-circle{transform:scale(1.12);box-shadow:0 0 50px rgba(245,166,35,0.45);background:var(--yellow)}
+    .vid-facade .play-circle svg{width:24px;height:24px;fill:#0b0e1a;margin-left:3px}
+    .vid-facade .vid-label{margin-top:16px;font-size:13px;color:var(--gray);font-weight:500}
+    .vid-facade .vid-icon{position:absolute;bottom:16px;right:16px;opacity:.3;font-size:12px;color:var(--gray)}
     @media(max-width:768px){.vid-slide{flex:0 0 85%}}
     .vid-nav{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:28px}
     .vid-nav .nav-arrow{width:40px;height:40px;border-radius:50%;border:1px solid var(--card-b);background:transparent;color:var(--gray);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
@@ -162,14 +171,11 @@
     .final-cta .date-label{display:block;margin-top:14px;color:var(--yellow);font-size:15px;font-weight:600}
     .final-cta .stars-bottom{margin-top:24px;color:var(--yellow);font-size:18px;letter-spacing:4px}
 
-    /* ══ Animations ══ */
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
     @keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
     .reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.16,1,.3,1)}
     .reveal.visible{opacity:1;transform:translateY(0)}
-    .reveal-d1{transition-delay:.1s}
-    .reveal-d2{transition-delay:.2s}
-    .reveal-d3{transition-delay:.3s}
+    .reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}
   </style>
 </head>
 <body>
@@ -185,11 +191,11 @@
     <div class="social-proof">
       <div class="social-proof-row">
         <div class="avatar-stack">
-          <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2025/06/chaimae.webp" alt="Chaimae"/></div>
-          <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2025/06/gael.webp" alt="Gael"/></div>
-          <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2025/06/almaz.webp" alt="Almaz"/></div>
-          <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/pierre.webp" alt="Pierre"/></div>
-          <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/thomas.webp" alt="Thomas"/></div>
+          <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2025/06/chaimae.webp" alt="Chaimae" loading="lazy" decoding="async"/></div>
+          <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2025/06/gael.webp" alt="Gael" loading="lazy" decoding="async"/></div>
+          <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2025/06/almaz.webp" alt="Almaz" loading="lazy" decoding="async"/></div>
+          <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/pierre.webp" alt="Pierre" loading="lazy" decoding="async"/></div>
+          <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/thomas.webp" alt="Thomas" loading="lazy" decoding="async"/></div>
         </div>
         <span class="stars-row">★★★★★</span>
       </div>
@@ -213,9 +219,9 @@
           <div class="day-title">Lecture institutionnelle et plan d'action</div>
         </div>
         <ul class="day-points">
-          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>La vraie analyse technique institutionnelle (jamais enseignée publiquement).</li>
-          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>Comment anticiper le mouvement du prix et entrer au meilleur moment.</li>
-          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>Le plan d'action exact pour devenir trader rentable (applicable même en débutant).</li>
+          <li><span class="si"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>La vraie analyse technique institutionnelle (jamais enseignée publiquement).</li>
+          <li><span class="si"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>Comment anticiper le mouvement du prix et entrer au meilleur moment.</li>
+          <li><span class="si"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>Le plan d'action exact pour devenir trader rentable (applicable même en débutant).</li>
         </ul>
       </div>
       <div class="day-card reveal reveal-d2">
@@ -225,9 +231,9 @@
           <div class="day-title">Prop Firms et stratégie mécanique</div>
         </div>
         <ul class="day-points">
-          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>Comment vivre du trading sans capital grâce aux prop firms</li>
-          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>La stratégie mécanique pour valider des challenges 100k / 200k+ sans émotions et à chaque essai</li>
-          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>La méthode pour enchaîner les payouts et augmenter son financement.</li>
+          <li><span class="si"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>Comment vivre du trading sans capital grâce aux prop firms</li>
+          <li><span class="si"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>La stratégie mécanique pour valider des challenges 100k / 200k+ sans émotions et à chaque essai</li>
+          <li><span class="si"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>La méthode pour enchaîner les payouts et augmenter son financement.</li>
         </ul>
       </div>
       <div class="day-card reveal reveal-d3">
@@ -237,9 +243,9 @@
           <div class="day-title">Algorithme et résultats prédictifs</div>
         </div>
         <ul class="day-points">
-          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>L'algo qui augmente drastiquement le taux de réussite de vos trades.</li>
-          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>Comment rendre vos résultats prédictifs au lieu d'espérer un bon trade.</li>
-          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>Les outils internes pour exploiter les informations cachées du marché.</li>
+          <li><span class="si"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>L'algo qui augmente drastiquement le taux de réussite de vos trades.</li>
+          <li><span class="si"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>Comment rendre vos résultats prédictifs au lieu d'espérer un bon trade.</li>
+          <li><span class="si"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span>Les outils internes pour exploiter les informations cachées du marché.</li>
         </ul>
       </div>
     </div>
@@ -251,10 +257,8 @@
   <div class="container">
     <p class="section-label reveal">⭐ PREUVES DE NOS ÉTUDIANTS ⭐</p>
     <h2 class="reveal">Rejoignez les traders d'élite <span class="hl">que nous avons formé</span></h2>
-    <div class="carousel-wrapper reveal" id="certWrap">
-      <div class="carousel-track animated" id="certTrack"></div>
-    </div>
-    <div class="carousel-dots" id="certDots"></div>
+    <div class="cw reveal" id="cW"><div class="ct anim" id="cT"></div></div>
+    <div class="cd" id="cD"></div>
     <div class="cta-center">
       <a href="https://freeman-academy.com/inscription/" class="btn-yellow">RÉSERVER MA PLACE GRATUITE <span class="date-tag">11, 12 et 13 avril</span></a>
       <span class="cta-sub-label">Rejoignez les traders d'élite</span>
@@ -266,7 +270,7 @@
 <section class="team-cta">
   <div class="container">
     <div class="team-card reveal">
-      <div class="team-img"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/formation-trading-freeman.webp" alt="Équipe Freeman Academy"/></div>
+      <div class="team-img"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/formation-trading-freeman.webp" alt="Équipe Freeman Academy" loading="lazy" decoding="async"/></div>
       <div class="team-content">
         <h3>Candidater pour une <span class="hl">place offerte</span></h3>
         <p>Remplissez le formulaire pour rejoindre notre prochain bootcamp exclusif.</p>
@@ -276,17 +280,15 @@
   </div>
 </section>
 
-<!-- ═══ VIDEOS ═══ -->
+<!-- ═══ VIDEOS (lazy-loaded) ═══ -->
 <section class="video-section">
   <div class="container">
     <h2 class="reveal">Écoutez quelques retours <span class="hl">de nos étudiants</span></h2>
-    <div class="carousel-wrapper reveal" id="vidWrap">
-      <div class="carousel-track animated" id="vidTrack"></div>
-    </div>
+    <div class="cw reveal" id="vW"><div class="ct anim" id="vT"></div></div>
     <div class="vid-nav">
-      <button class="nav-arrow" id="vidPrev">‹</button>
-      <div class="carousel-dots" id="vidDots"></div>
-      <button class="nav-arrow" id="vidNext">›</button>
+      <button class="nav-arrow" id="vP">‹</button>
+      <div class="cd" id="vD"></div>
+      <button class="nav-arrow" id="vN">›</button>
     </div>
   </div>
 </section>
@@ -317,153 +319,68 @@
 </section>
 
 <script>
-// ── FAQ ──
-function toggleFaq(el){
-  const item=el.closest('.faq-item'),wasOpen=item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-  if(!wasOpen)item.classList.add('open');
+function toggleFaq(el){const i=el.closest('.faq-item'),o=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open')}
+
+// ═══ INFINITE CAROUSEL ═══
+function IC(wId,tId,dId,slides,pp,autoMs){
+  const w=document.getElementById(wId),t=document.getElementById(tId),dc=document.getElementById(dId),g=20,n=slides.length;
+  const before=slides.slice(-pp),after=slides.slice(0,pp);
+  t.innerHTML=before.join('')+slides.join('')+after.join('');
+  const all=[...t.children];
+  let idx=pp,drag=false,sx=0,cx=0;
+  function sw(){return all[0].offsetWidth+g}
+  function mp(){return Math.max(0,n-pp)}
+  function pos(a){if(a)t.classList.add('anim');else t.classList.remove('anim');t.style.transform=`translateX(-${idx*sw()}px)`}
+  function bd(){if(!dc)return;dc.innerHTML='';for(let i=0;i<n;i++){const d=document.createElement('button');d.className='dot'+(i===0?' active':'');d.onclick=()=>gt(i);dc.appendChild(d)}}
+  function ud(){if(!dc)return;const r=((idx-pp)%n+n)%n;dc.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===r))}
+  function gt(r){idx=r+pp;pos(true);ud()}
+  function nx(){idx++;pos(true);ud()}
+  function pv(){idx--;pos(true);ud()}
+  t.addEventListener('transitionend',()=>{if(idx>=n+pp){idx=pp;pos(false)}if(idx<pp){idx=n+pp-1;pos(false)}ud()});
+  function oS(e){if(e.target.closest('iframe'))return;drag=true;w.classList.add('dragging');sx=e.type.includes('mouse')?e.pageX:e.touches[0].pageX;cx=sx}
+  function oM(e){if(!drag)return;cx=e.type.includes('mouse')?e.pageX:e.touches[0].pageX;t.classList.remove('anim');t.style.transform=`translateX(${-idx*sw()+(cx-sx)}px)`}
+  function oE(){if(!drag)return;drag=false;w.classList.remove('dragging');const d=cx-sx,th=sw()*.15;if(d<-th)nx();else if(d>th)pv();else pos(true)}
+  w.addEventListener('mousedown',oS);w.addEventListener('mousemove',oM);w.addEventListener('mouseup',oE);w.addEventListener('mouseleave',oE);
+  w.addEventListener('touchstart',oS,{passive:true});w.addEventListener('touchmove',oM,{passive:true});w.addEventListener('touchend',oE);
+  bd();pos(false);
+  let tm=null;
+  if(autoMs){tm=setInterval(nx,autoMs);w.addEventListener('mouseenter',()=>clearInterval(tm));w.addEventListener('mouseleave',()=>{tm=setInterval(nx,autoMs)})}
+  return{next:nx,prev:pv,goTo:gt}
 }
 
-// ══════════════════════════════════════════
-// INFINITE LOOP CAROUSEL ENGINE
-// ══════════════════════════════════════════
-function InfiniteCarousel(wrapId,trackId,dotsId,slidesHTML,perPage,autoMs){
-  const wrap=document.getElementById(wrapId);
-  const track=document.getElementById(trackId);
-  const dotsC=document.getElementById(dotsId);
-  const gap=20;
-  const total=slidesHTML.length;
+// ═══ CERT DATA ═══
+const cS=[
+  ['certificat-mucahid','Challenge TOPSTEP validé'],
+  ['certificat-edmond','Challenge TOPSTEP validé'],
+  ['certificat-tolunay','Challenge TOPSTEP validé'],
+  ['certificat-ftmo-nourdin','Challenge FTMO validé'],
+  ['certificat-gael','Challenge TOPSTEP validé'],
+  ['certificat-komi','Challenge TOPSTEP validé'],
+  ['certificat-serpil','Challenge TOPSTEP validé'],
+  ['certificat-portfolio-manager-serpil','Portfolio Manager validé'],
+  ['certificat-yaniss','Challenge TOPSTEP validé'],
+].map(c=>`<div class="cert-slide"><div class="ciw"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/${c[0]}.webp" alt="${c[0]}" loading="lazy" decoding="async"/></div><span class="cl"><span class="cc">✓</span> ${c[1]}</span></div>`);
+IC('cW','cT','cD',cS,innerWidth<=768?1:3,4000);
 
-  // Clone slides for infinite: [cloneLast N] [originals] [cloneFirst N]
-  const cloneBefore=slidesHTML.slice(-perPage).map(h=>'<div class="__clone">'+h+'</div>');
-  const cloneAfter=slidesHTML.slice(0,perPage).map(h=>'<div class="__clone">'+h+'</div>');
-  track.innerHTML=cloneBefore.join('')+slidesHTML.join('')+cloneAfter.join('');
+// ═══ VIDEO DATA (LAZY FACADE) ═══
+const vIds=['1156015455?h=dbc93cfc20','1156011162?h=01566d5dd6','1156011647?h=61d4d271f1','1156013587?h=9da5005604'];
+const vS=vIds.map((id,i)=>`<div class="vid-slide" data-src="https://player.vimeo.com/video/${id}"><div class="vid-facade" onclick="loadVid(this)"><div class="play-circle"><svg viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg></div><div class="vid-label">Témoignage ${i+1}</div><div class="vid-icon">▶ Vimeo</div></div></div>`);
+const vC=IC('vW','vT','vD',vS,innerWidth<=768?1:3,0);
+document.getElementById('vP').onclick=()=>vC.prev();
+document.getElementById('vN').onclick=()=>vC.next();
 
-  const allSlides=[...track.children];
-  let idx=perPage; // start at first real slide
-  let isDragging=false,startX=0,currentX=0;
-
-  function slideW(){return allSlides[0].offsetWidth+gap}
-  function setPos(animate){
-    if(animate)track.classList.add('animated');
-    else track.classList.remove('animated');
-    track.style.transform=`translateX(-${idx*slideW()}px)`;
-  }
-
-  // Dots
-  function buildDots(){
-    if(!dotsC)return;
-    dotsC.innerHTML='';
-    for(let i=0;i<total;i++){
-      const d=document.createElement('button');
-      d.className='dot'+(i===0?' active':'');
-      d.onclick=()=>goTo(i);
-      dotsC.appendChild(d);
-    }
-  }
-  function updateDots(){
-    if(!dotsC)return;
-    const realIdx=(idx-perPage%total+total)%total;
-    dotsC.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===realIdx));
-  }
-
-  function goTo(realIndex){
-    idx=realIndex+perPage;
-    setPos(true);
-    updateDots();
-  }
-
-  function next(){idx++;setPos(true);updateDots()}
-  function prev(){idx--;setPos(true);updateDots()}
-
-  // After transition, check if we're on a clone → jump instantly
-  track.addEventListener('transitionend',()=>{
-    if(idx>=total+perPage){idx=perPage;setPos(false)}
-    if(idx<perPage){idx=total+perPage-1;setPos(false)}
-    updateDots();
-  });
-
-  // Drag
-  function onStart(e){
-    if(e.target.closest('iframe'))return;
-    isDragging=true;wrap.classList.add('dragging');
-    startX=e.type.includes('mouse')?e.pageX:e.touches[0].pageX;
-    currentX=startX;
-  }
-  function onMove(e){
-    if(!isDragging)return;
-    currentX=e.type.includes('mouse')?e.pageX:e.touches[0].pageX;
-    const diff=currentX-startX;
-    track.classList.remove('animated');
-    track.style.transform=`translateX(${-idx*slideW()+diff}px)`;
-  }
-  function onEnd(){
-    if(!isDragging)return;
-    isDragging=false;wrap.classList.remove('dragging');
-    const diff=currentX-startX;
-    const threshold=slideW()*0.15;
-    if(diff<-threshold)next();
-    else if(diff>threshold)prev();
-    else setPos(true);
-  }
-
-  wrap.addEventListener('mousedown',onStart);
-  wrap.addEventListener('mousemove',onMove);
-  wrap.addEventListener('mouseup',onEnd);
-  wrap.addEventListener('mouseleave',onEnd);
-  wrap.addEventListener('touchstart',onStart,{passive:true});
-  wrap.addEventListener('touchmove',onMove,{passive:true});
-  wrap.addEventListener('touchend',onEnd);
-
-  // Init position
-  buildDots();
-  setPos(false);
-
-  // Auto
-  let timer=null;
-  if(autoMs){
-    timer=setInterval(next,autoMs);
-    wrap.addEventListener('mouseenter',()=>clearInterval(timer));
-    wrap.addEventListener('mouseleave',()=>{timer=setInterval(next,autoMs)});
-  }
-
-  return{next,prev,goTo};
+// Load video on click
+function loadVid(facade){
+  const slide=facade.closest('.vid-slide')||facade.closest('[data-src]');
+  if(!slide)return;
+  const src=slide.getAttribute('data-src');
+  if(!src)return;
+  facade.outerHTML=`<iframe src="${src}&autoplay=1" allow="autoplay; fullscreen" allowfullscreen></iframe>`;
 }
 
-// ══ CERT CAROUSEL DATA ══
-const certData=[
-  {img:'https://freeman-academy.com/wp-content/uploads/2026/01/certificat-mucahid.webp',label:'Challenge TOPSTEP validé'},
-  {img:'https://freeman-academy.com/wp-content/uploads/2026/01/certificat-edmond.webp',label:'Challenge TOPSTEP validé'},
-  {img:'https://freeman-academy.com/wp-content/uploads/2026/01/certificat-tolunay.webp',label:'Challenge TOPSTEP validé'},
-  {img:'https://freeman-academy.com/wp-content/uploads/2026/01/certificat-ftmo-nourdin.webp',label:'Challenge FTMO validé'},
-  {img:'https://freeman-academy.com/wp-content/uploads/2026/01/certificat-gael.webp',label:'Challenge TOPSTEP validé'},
-  {img:'https://freeman-academy.com/wp-content/uploads/2026/01/certificat-komi.webp',label:'Challenge TOPSTEP validé'},
-  {img:'https://freeman-academy.com/wp-content/uploads/2026/01/certificat-serpil.webp',label:'Challenge TOPSTEP validé'},
-  {img:'https://freeman-academy.com/wp-content/uploads/2026/01/certificat-portfolio-manager-serpil.webp',label:'Portfolio Manager validé'},
-  {img:'https://freeman-academy.com/wp-content/uploads/2026/01/certificat-yaniss.webp',label:'Challenge TOPSTEP validé'},
-];
-const certSlides=certData.map(c=>`<div class="cert-slide"><div class="cert-img-wrap"><img src="${c.img}" alt="" loading="lazy"/></div><span class="cert-label"><span class="check-circle">✓</span> ${c.label}</span></div>`);
-const certPP=window.innerWidth<=768?1:3;
-InfiniteCarousel('certWrap','certTrack','certDots',certSlides,certPP,4000);
-
-// ══ VIDEO CAROUSEL DATA ══
-const vidData=[
-  'https://player.vimeo.com/video/1156015455?h=dbc93cfc20',
-  'https://player.vimeo.com/video/1156011162?h=01566d5dd6',
-  'https://player.vimeo.com/video/1156011647?h=61d4d271f1',
-  'https://player.vimeo.com/video/1156013587?h=9da5005604',
-];
-const vidSlides=vidData.map(u=>`<div class="vid-slide"><iframe src="${u}" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>`);
-const vidPP=window.innerWidth<=768?1:3;
-const vidC=InfiniteCarousel('vidWrap','vidTrack','vidDots',vidSlides,vidPP,0);
-document.getElementById('vidPrev').onclick=()=>vidC.prev();
-document.getElementById('vidNext').onclick=()=>vidC.next();
-
-// ── Scroll Reveal ──
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}});
-},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+// ═══ REVEAL ═══
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 
 </body>
