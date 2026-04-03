@@ -9,489 +9,261 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg-main: #0b0e1a;
-      --bg-card: #111628;
-      --bg-card-border: rgba(255,255,255,0.08);
-      --bg-card-border-hover: rgba(255,255,255,0.14);
+      --bg: #0b0e1a;
+      --card: #111628;
+      --card-b: rgba(255,255,255,0.08);
+      --card-bh: rgba(255,255,255,0.14);
       --yellow: #f5a623;
-      --yellow-light: #ffc84a;
+      --yellow-l: #ffc84a;
       --cyan: #2dd4bf;
-      --cyan-glow: rgba(45,212,191,0.25);
+      --cyan-g: rgba(45,212,191,0.25);
+      --blue: #3b9cff;
       --white: #f2f2f7;
       --gray: #9ca3af;
-      --gray-dim: #6b7280;
+      --gray-d: #6b7280;
       --font: 'Inter', -apple-system, sans-serif;
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: var(--font);
-      background: var(--bg-main);
-      color: var(--white);
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font);background:var(--bg);color:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    .container{max-width:1140px;margin:0 auto;padding:0 24px}
 
-    /* ══════ HERO ══════ */
-    .hero {
-      padding: 80px 0 64px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      width: 800px; height: 500px;
-      background: radial-gradient(ellipse, rgba(245,166,35,0.06) 0%, transparent 70%);
-      top: -100px; left: 50%; transform: translateX(-50%);
-      pointer-events: none;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      border: 1.5px solid rgba(245,166,35,0.4);
-      background: rgba(245,166,35,0.08);
-      padding: 10px 24px; border-radius: 50px;
-      font-size: 13px; font-weight: 700; letter-spacing: 1.5px;
-      text-transform: uppercase; color: var(--yellow);
-      margin-bottom: 36px;
-      box-shadow: 0 0 30px rgba(245,166,35,0.1);
-    }
-    .hero h1 {
-      font-size: clamp(32px, 5vw, 54px);
-      font-weight: 900; line-height: 1.15;
-      margin-bottom: 20px; letter-spacing: -0.5px;
-    }
-    .hero h1 .hl { color: var(--yellow); }
-    .hero .sub {
-      font-size: clamp(18px, 2.5vw, 24px);
-      font-weight: 700; line-height: 1.4; margin-bottom: 20px;
-    }
-    .hero .sub .hl { color: var(--yellow); font-style: italic; }
-    .hero .desc {
-      font-size: 16px; color: var(--gray);
-      max-width: 640px; margin: 0 auto 40px; line-height: 1.7;
-    }
-    .hero .desc strong { color: var(--white); font-weight: 600; }
+    /* ══ HERO ══ */
+    .hero{padding:80px 0 64px;text-align:center;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;width:800px;height:500px;background:radial-gradient(ellipse,rgba(245,166,35,0.06) 0%,transparent 70%);top:-100px;left:50%;transform:translateX(-50%);pointer-events:none}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(245,166,35,0.4);background:rgba(245,166,35,0.08);padding:10px 24px;border-radius:50px;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--yellow);margin-bottom:36px;box-shadow:0 0 30px rgba(245,166,35,0.1)}
+    .hero h1{font-size:clamp(32px,5vw,54px);font-weight:900;line-height:1.15;margin-bottom:20px;letter-spacing:-0.5px}
+    .hero h1 .hl{color:var(--yellow)}
+    .hero .sub{font-size:clamp(20px,3vw,28px);font-weight:700;line-height:1.4;margin-bottom:24px}
+    .hero .sub .hl-blue{color:var(--cyan);font-style:italic}
+    .hero .desc{font-size:16px;color:var(--gray);max-width:640px;margin:0 auto 40px;line-height:1.7}
+    .hero .desc strong{color:var(--white);font-weight:600}
 
-    .btn-yellow {
-      display: inline-flex; align-items: center; gap: 12px;
-      background: var(--yellow); color: #0b0e1a;
-      font-weight: 800; font-size: 16px;
-      text-transform: uppercase; letter-spacing: 0.5px;
-      padding: 20px 40px; border-radius: 12px;
-      border: none; cursor: pointer; text-decoration: none;
-      transition: all 0.3s;
-      box-shadow: 0 0 40px rgba(245,166,35,0.25);
-    }
-    .btn-yellow .date-tag { font-weight: 500; font-size: 14px; text-transform: none; opacity: 0.8; }
-    .btn-yellow:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 60px rgba(245,166,35,0.35);
-      background: var(--yellow-light);
-    }
-    .btn-yellow .arrow { font-size: 18px; transition: transform 0.3s; }
-    .btn-yellow:hover .arrow { transform: translateX(4px); }
+    .btn-yellow{display:inline-flex;align-items:center;gap:12px;background:var(--yellow);color:#0b0e1a;font-weight:800;font-size:16px;text-transform:uppercase;letter-spacing:.5px;padding:20px 40px;border-radius:12px;border:none;cursor:pointer;text-decoration:none;transition:all .3s;box-shadow:0 0 40px rgba(245,166,35,0.25)}
+    .btn-yellow .date-tag{font-weight:500;font-size:14px;text-transform:none;opacity:.8}
+    .btn-yellow:hover{transform:translateY(-2px);box-shadow:0 0 60px rgba(245,166,35,0.35);background:var(--yellow-l)}
+    .btn-yellow .arrow{font-size:18px;transition:transform .3s}
+    .btn-yellow:hover .arrow{transform:translateX(4px)}
 
-    .social-proof {
-      margin-top: 36px;
-      display: flex; align-items: center; justify-content: center;
-      gap: 12px; flex-wrap: wrap;
-    }
-    .avatar-stack { display: flex; }
-    .avatar-stack .avatar {
-      width: 42px; height: 42px; border-radius: 50%;
-      border: 2.5px solid var(--bg-main);
-      margin-left: -12px;
-      overflow: hidden;
-      background: #1e2235;
-    }
-    .avatar-stack .avatar:first-child { margin-left: 0; }
-    .avatar-stack .avatar img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
-    }
-    .stars-row { color: var(--yellow); font-size: 18px; letter-spacing: 2px; }
-    .social-proof .label { color: var(--yellow); font-size: 14px; font-weight: 600; }
+    .social-proof{margin-top:36px;display:flex;flex-direction:column;align-items:center;gap:12px}
+    .social-proof-row{display:flex;align-items:center;gap:14px}
+    .avatar-stack{display:flex}
+    .avatar-stack .avatar{width:44px;height:44px;border-radius:50%;border:2.5px solid var(--bg);margin-left:-12px;overflow:hidden;background:#1e2235}
+    .avatar-stack .avatar:first-child{margin-left:0}
+    .avatar-stack .avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    .stars-row{color:var(--yellow);font-size:20px;letter-spacing:3px}
+    .social-proof .label{color:var(--yellow);font-size:15px;font-weight:600}
 
-    /* ══════ SECTION LABEL ══════ */
-    .section-label {
-      text-align: center; font-size: 13px; font-weight: 700;
-      letter-spacing: 2.5px; text-transform: uppercase;
-      color: var(--yellow); margin-bottom: 16px;
-    }
+    /* ══ SECTION LABEL ══ */
+    .section-label{text-align:center;font-size:13px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--yellow);margin-bottom:16px}
 
-    /* ══════ PROGRAM ══════ */
-    .program { padding: 80px 0; }
-    .program h2 {
-      font-size: clamp(28px, 4.5vw, 44px); font-weight: 800;
-      text-align: center; margin-bottom: 12px;
-    }
-    .program h2 .hl { color: var(--yellow); }
-    .program .program-sub { text-align: center; color: var(--gray); font-size: 15px; margin-bottom: 8px; }
-    .program .program-sub2 { text-align: center; color: var(--white); font-size: 15px; font-weight: 600; margin-bottom: 48px; }
+    /* ══ PROGRAM ══ */
+    .program{padding:80px 0}
+    .program h2{font-size:clamp(28px,4.5vw,44px);font-weight:800;text-align:center;margin-bottom:12px}
+    .program h2 .hl{color:var(--yellow)}
+    .program .program-sub{text-align:center;color:var(--gray);font-size:15px;margin-bottom:8px}
+    .program .program-sub2{text-align:center;color:var(--white);font-size:15px;font-weight:600;margin-bottom:48px}
+    .days-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    @media(max-width:768px){.days-grid{grid-template-columns:1fr}}
+    .day-card{background:var(--card);border:1px solid var(--card-b);border-radius:16px;padding:28px 24px;transition:all .35s ease}
+    .day-card:hover{border-color:var(--yellow);box-shadow:0 0 25px rgba(245,166,35,0.1);transform:translateY(-4px)}
+    .day-card .day-date{color:var(--yellow);font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
+    .day-card .day-header{display:flex;align-items:flex-start;gap:12px;margin-bottom:20px}
+    .day-card .day-icon{width:42px;height:42px;min-width:42px;border-radius:10px;background:rgba(245,166,35,0.12);display:flex;align-items:center;justify-content:center}
+    .day-card .day-icon svg{width:22px;height:22px;stroke:var(--yellow);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+    .day-card .day-title{font-size:17px;font-weight:700;line-height:1.35}
+    .day-card .day-points{list-style:none;display:flex;flex-direction:column;gap:14px}
+    .day-card .day-points li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--gray);line-height:1.55}
+    .day-card .day-points li .star-icon{min-width:16px;margin-top:2px;color:var(--yellow)}
+    .day-card .day-points li .star-icon svg{width:16px;height:16px;fill:var(--yellow);stroke:none}
 
-    .days-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-    @media (max-width: 768px) { .days-grid { grid-template-columns: 1fr; } }
+    /* ══ PROOFS CAROUSEL ══ */
+    .proofs{padding:80px 0}
+    .proofs h2{font-size:clamp(28px,4.5vw,44px);font-weight:800;text-align:center;margin-bottom:48px}
+    .proofs h2 .hl{color:var(--yellow)}
+    .carousel-wrapper{position:relative;overflow:hidden;cursor:grab;-webkit-user-select:none;user-select:none}
+    .carousel-wrapper.dragging{cursor:grabbing}
+    .carousel-track{display:flex;gap:20px;transition:transform .5s cubic-bezier(.25,1,.5,1)}
+    .carousel-wrapper.dragging .carousel-track{transition:none}
 
-    .day-card {
-      background: var(--bg-card); border: 1px solid var(--bg-card-border);
-      border-radius: 16px; padding: 28px 24px; transition: all 0.3s;
-    }
-    .day-card:hover { border-color: var(--bg-card-border-hover); }
-    .day-card .day-date {
-      color: var(--yellow); font-size: 13px; font-weight: 700;
-      letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 14px;
-    }
-    .day-card .day-header { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 20px; }
-    .day-card .day-icon {
-      width: 42px; height: 42px; min-width: 42px;
-      border-radius: 10px; background: rgba(245,166,35,0.12);
-      display: flex; align-items: center; justify-content: center;
-    }
-    .day-card .day-icon svg { width: 22px; height: 22px; stroke: var(--yellow); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-    .day-card .day-title { font-size: 17px; font-weight: 700; line-height: 1.35; }
-    .day-card .day-points { list-style: none; display: flex; flex-direction: column; gap: 14px; }
-    .day-card .day-points li {
-      display: flex; gap: 10px; align-items: flex-start;
-      font-size: 14px; color: var(--gray); line-height: 1.55;
-    }
-    .day-card .day-points li .star { color: var(--yellow); font-size: 14px; margin-top: 2px; min-width: 16px; }
+    .cert-slide{flex:0 0 calc(33.333% - 14px);background:var(--card);border:2px solid transparent;border-radius:16px;padding:16px;text-align:center;transition:all .35s ease}
+    .cert-slide:hover{border-color:var(--blue);box-shadow:0 0 20px rgba(59,156,255,0.15)}
+    .cert-slide .cert-img-wrap{width:100%;aspect-ratio:4/3;border-radius:10px;overflow:hidden;margin-bottom:14px;background:#fff;display:flex;align-items:center;justify-content:center}
+    .cert-slide .cert-img-wrap img{width:100%;height:100%;object-fit:contain;display:block}
+    .cert-slide .cert-label{display:inline-flex;align-items:center;gap:8px;color:var(--cyan);font-size:14px;font-weight:600}
+    .cert-label .check-circle{width:20px;height:20px;border-radius:50%;border:2px solid var(--cyan);display:inline-flex;align-items:center;justify-content:center;font-size:11px}
+    @media(max-width:768px){.cert-slide{flex:0 0 85%}}
 
-    /* ══════ PROOFS / CERTIFICATES CAROUSEL ══════ */
-    .proofs { padding: 80px 0; }
-    .proofs h2 {
-      font-size: clamp(28px, 4.5vw, 44px); font-weight: 800;
-      text-align: center; margin-bottom: 48px;
-    }
-    .proofs h2 .hl { color: var(--yellow); }
+    .carousel-dots{display:flex;justify-content:center;gap:8px;margin:24px 0 40px}
+    .carousel-dots .dot{width:10px;height:10px;border-radius:50%;background:var(--gray-d);cursor:pointer;border:none;padding:0;transition:all .3s}
+    .carousel-dots .dot.active{background:var(--yellow);width:24px;border-radius:5px}
 
-    .certs-carousel-wrapper { position: relative; overflow: hidden; margin-bottom: 24px; }
-    .certs-track {
-      display: flex; gap: 20px;
-      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-    }
-    .cert-slide {
-      flex: 0 0 calc(33.333% - 14px);
-      background: var(--bg-card); border: 1px solid var(--bg-card-border);
-      border-radius: 16px; padding: 20px; text-align: center;
-      transition: all 0.3s;
-    }
-    .cert-slide:hover { border-color: var(--bg-card-border-hover); }
-    .cert-slide img {
-      width: 100%; border-radius: 10px; margin-bottom: 14px;
-      background: #fff;
-    }
-    .cert-slide .cert-label {
-      display: inline-flex; align-items: center; gap: 8px;
-      color: var(--cyan); font-size: 14px; font-weight: 600;
-    }
-    .cert-label .check-circle {
-      width: 20px; height: 20px; border-radius: 50%;
-      border: 2px solid var(--cyan);
-      display: inline-flex; align-items: center; justify-content: center;
-      font-size: 11px;
-    }
-    @media (max-width: 768px) {
-      .cert-slide { flex: 0 0 85%; }
-    }
+    .cta-center{text-align:center}
+    .cta-sub-label{display:block;margin-top:12px;color:var(--gray);font-size:14px}
 
-    .carousel-nav {
-      display: flex; justify-content: center; gap: 8px; margin: 24px 0 40px;
-    }
-    .carousel-nav .dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--gray-dim); cursor: pointer; border: none;
-      transition: all 0.3s; padding: 0;
-    }
-    .carousel-nav .dot.active {
-      background: var(--yellow); width: 24px; border-radius: 5px;
-    }
+    /* ══ TEAM ══ */
+    .team-cta{padding:80px 0}
+    .team-card{background:var(--card);border:1px solid var(--card-b);border-radius:20px;padding:40px;display:flex;align-items:center;gap:48px;overflow:hidden}
+    @media(max-width:768px){.team-card{flex-direction:column;gap:28px;padding:24px}}
+    .team-card .team-img{flex:1;min-width:0}
+    .team-card .team-img img{width:100%;border-radius:14px;display:block}
+    .team-card .team-content{flex:1;min-width:0}
+    .team-card .team-content h3{font-size:clamp(24px,3vw,32px);font-weight:800;margin-bottom:12px}
+    .team-card .team-content h3 .hl{color:var(--cyan)}
+    .team-card .team-content p{color:var(--gray);font-size:15px;margin-bottom:28px}
+    .btn-cyan{display:inline-flex;align-items:center;gap:10px;background:var(--cyan);color:#0b0e1a;font-weight:700;font-size:16px;padding:18px 36px;border-radius:12px;border:none;cursor:pointer;text-decoration:none;transition:all .3s;box-shadow:0 0 40px var(--cyan-g)}
+    .btn-cyan:hover{transform:translateY(-2px);box-shadow:0 0 60px rgba(45,212,191,0.35)}
 
-    .cta-center { text-align: center; }
-    .cta-sub-label { display: block; margin-top: 12px; color: var(--gray); font-size: 14px; }
+    /* ══ VIDEO CAROUSEL ══ */
+    .video-section{padding:80px 0}
+    .video-section h2{font-size:clamp(28px,4.5vw,44px);font-weight:800;text-align:center;margin-bottom:48px}
+    .video-section h2 .hl{color:var(--yellow)}
+    .vid-slide{flex:0 0 calc(33.333% - 14px);background:var(--card);border:1px solid var(--card-b);border-radius:16px;overflow:hidden;min-height:420px;transition:opacity .3s}
+    .vid-slide iframe{width:100%;height:100%;border:none;display:block;min-height:420px;pointer-events:auto}
+    @media(max-width:768px){.vid-slide{flex:0 0 85%}}
+    .vid-nav{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:28px}
+    .vid-nav .nav-arrow{width:40px;height:40px;border-radius:50%;border:1px solid var(--card-b);background:transparent;color:var(--gray);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
+    .vid-nav .nav-arrow:hover{border-color:var(--white);color:var(--white)}
+    .vid-nav .vid-dots{display:flex;gap:8px}
+    .vid-nav .dot{width:10px;height:10px;border-radius:50%;background:var(--gray-d);border:none;cursor:pointer;padding:0;transition:all .3s}
+    .vid-nav .dot.active{background:var(--yellow);width:24px;border-radius:5px}
 
-    /* ══════ TEAM CTA ══════ */
-    .team-cta { padding: 80px 0; }
-    .team-card {
-      background: var(--bg-card); border: 1px solid var(--bg-card-border);
-      border-radius: 20px; padding: 40px;
-      display: flex; align-items: center; gap: 48px; overflow: hidden;
-    }
-    @media (max-width: 768px) { .team-card { flex-direction: column; gap: 28px; padding: 24px; } }
-    .team-card .team-img { flex: 1; min-width: 0; }
-    .team-card .team-img img {
-      width: 100%; border-radius: 14px; display: block;
-    }
-    .team-card .team-content { flex: 1; min-width: 0; }
-    .team-card .team-content h3 { font-size: clamp(24px, 3vw, 32px); font-weight: 800; margin-bottom: 12px; }
-    .team-card .team-content h3 .hl { color: var(--cyan); }
-    .team-card .team-content p { color: var(--gray); font-size: 15px; margin-bottom: 28px; }
-    .btn-cyan {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--cyan); color: #0b0e1a;
-      font-weight: 700; font-size: 16px;
-      padding: 18px 36px; border-radius: 12px;
-      border: none; cursor: pointer; text-decoration: none;
-      transition: all 0.3s;
-      box-shadow: 0 0 40px var(--cyan-glow);
-    }
-    .btn-cyan:hover { transform: translateY(-2px); box-shadow: 0 0 60px rgba(45,212,191,0.35); }
+    /* ══ FAQ ══ */
+    .faq{padding:80px 0}
+    .faq h2{font-size:clamp(28px,4.5vw,44px);font-weight:800;text-align:center;margin-bottom:48px}
+    .faq h2 .hl{color:var(--yellow)}
+    .faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+    .faq-item{background:var(--card);border:1.5px solid var(--card-b);border-radius:14px;overflow:hidden;transition:all .35s ease}
+    .faq-item:hover{border-color:rgba(245,166,35,0.25);box-shadow:0 0 20px rgba(245,166,35,0.06)}
+    .faq-item.open{border-color:var(--yellow);box-shadow:0 0 25px rgba(245,166,35,0.1)}
+    .faq-item.open .faq-question span:first-child{color:var(--yellow)}
+    .faq-question{padding:22px 24px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:16px;font-weight:600;gap:16px;user-select:none;transition:color .3s}
+    .faq-question .chevron{font-size:14px;color:var(--gray);transition:transform .3s,color .3s;min-width:20px;text-align:center}
+    .faq-item.open .chevron{transform:rotate(180deg);color:var(--yellow)}
+    .faq-answer{max-height:0;overflow:hidden;transition:max-height .4s ease}
+    .faq-item.open .faq-answer{max-height:300px}
+    .faq-answer-inner{padding:0 24px 22px;color:var(--gray);font-size:15px;line-height:1.7}
 
-    /* ══════ VIDEO TESTIMONIALS CAROUSEL ══════ */
-    .video-section { padding: 80px 0; }
-    .video-section h2 {
-      font-size: clamp(28px, 4.5vw, 44px); font-weight: 800;
-      text-align: center; margin-bottom: 48px;
-    }
-    .video-section h2 .hl { color: var(--yellow); }
+    /* ══ FINAL CTA ══ */
+    .final-cta{padding:80px 0 60px;text-align:center;position:relative}
+    .final-cta::before{content:'';position:absolute;width:600px;height:400px;background:radial-gradient(ellipse,rgba(245,166,35,0.05) 0%,transparent 70%);top:0;left:50%;transform:translateX(-50%);pointer-events:none}
+    .final-cta .stars-top{color:var(--yellow);font-size:22px;letter-spacing:8px;margin-bottom:20px}
+    .final-cta h2{font-size:clamp(28px,4.5vw,44px);font-weight:800;margin-bottom:16px}
+    .final-cta h2 .hl{color:var(--yellow)}
+    .final-cta .final-sub{color:var(--gray);font-size:16px;margin-bottom:36px}
+    .final-cta .date-label{display:block;margin-top:14px;color:var(--yellow);font-size:15px;font-weight:600}
+    .final-cta .stars-bottom{margin-top:24px;color:var(--yellow);font-size:18px;letter-spacing:4px}
 
-    .video-carousel-wrapper { position: relative; overflow: hidden; }
-    .video-track {
-      display: flex; gap: 20px;
-      transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-      align-items: stretch;
-    }
-    .video-slide {
-      flex: 0 0 calc(33.333% - 14px);
-      background: var(--bg-card); border: 1px solid var(--bg-card-border);
-      border-radius: 16px; overflow: hidden;
-      min-height: 420px;
-      transition: all 0.3s;
-      opacity: 0.4;
-    }
-    .video-slide.active { opacity: 1; }
-    .video-slide iframe {
-      width: 100%; height: 100%; border: none; display: block;
-      min-height: 420px;
-    }
-    @media (max-width: 768px) {
-      .video-slide { flex: 0 0 85%; opacity: 1; }
-    }
-
-    .vid-nav {
-      display: flex; justify-content: center; align-items: center;
-      gap: 16px; margin-top: 28px;
-    }
-    .vid-nav .nav-arrow {
-      width: 40px; height: 40px; border-radius: 50%;
-      border: 1px solid var(--bg-card-border);
-      background: transparent; color: var(--gray);
-      font-size: 18px; cursor: pointer; display: flex;
-      align-items: center; justify-content: center;
-      transition: all 0.3s;
-    }
-    .vid-nav .nav-arrow:hover { border-color: var(--white); color: var(--white); }
-    .vid-nav .vid-dots { display: flex; gap: 8px; }
-    .vid-nav .dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--gray-dim); border: none; cursor: pointer;
-      padding: 0; transition: all 0.3s;
-    }
-    .vid-nav .dot.active { background: var(--yellow); width: 24px; border-radius: 5px; }
-
-    /* ══════ FAQ ══════ */
-    .faq { padding: 80px 0; }
-    .faq h2 {
-      font-size: clamp(28px, 4.5vw, 44px); font-weight: 800;
-      text-align: center; margin-bottom: 48px;
-    }
-    .faq h2 .hl { color: var(--yellow); }
-    .faq-list { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
-    .faq-item {
-      background: var(--bg-card); border: 1px solid var(--bg-card-border);
-      border-radius: 14px; overflow: hidden; transition: border-color 0.3s;
-    }
-    .faq-item:hover { border-color: var(--bg-card-border-hover); }
-    .faq-item.open { border-color: rgba(245,166,35,0.2); }
-    .faq-question {
-      padding: 22px 24px; display: flex; justify-content: space-between;
-      align-items: center; cursor: pointer; font-size: 16px;
-      font-weight: 600; gap: 16px; user-select: none;
-    }
-    .faq-question .chevron { font-size: 14px; color: var(--gray); transition: transform 0.3s; min-width: 20px; text-align: center; }
-    .faq-item.open .chevron { transform: rotate(180deg); }
-    .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-    .faq-item.open .faq-answer { max-height: 300px; }
-    .faq-answer-inner { padding: 0 24px 22px; color: var(--gray); font-size: 15px; line-height: 1.7; }
-
-    /* ══════ FINAL CTA ══════ */
-    .final-cta {
-      padding: 80px 0 60px; text-align: center; position: relative;
-    }
-    .final-cta::before {
-      content: ''; position: absolute;
-      width: 600px; height: 400px;
-      background: radial-gradient(ellipse, rgba(245,166,35,0.05) 0%, transparent 70%);
-      top: 0; left: 50%; transform: translateX(-50%); pointer-events: none;
-    }
-    .final-cta .stars-top { color: var(--yellow); font-size: 22px; letter-spacing: 8px; margin-bottom: 20px; }
-    .final-cta h2 { font-size: clamp(28px, 4.5vw, 44px); font-weight: 800; margin-bottom: 16px; }
-    .final-cta h2 .hl { color: var(--yellow); }
-    .final-cta .final-sub { color: var(--gray); font-size: 16px; margin-bottom: 36px; }
-    .final-cta .date-label { display: block; margin-top: 14px; color: var(--yellow); font-size: 15px; font-weight: 600; }
-    .final-cta .stars-bottom { margin-top: 24px; color: var(--yellow); font-size: 18px; letter-spacing: 4px; }
-
-    /* ══════ Reveal ══════ */
-    .reveal { opacity: 0; transform: translateY(28px); transition: all 0.65s cubic-bezier(0.16, 1, 0.3, 1); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* ══ Reveal ══ */
+    .reveal{opacity:0;transform:translateY(28px);transition:all .65s cubic-bezier(.16,1,.3,1)}
+    .reveal.visible{opacity:1;transform:translateY(0)}
   </style>
 </head>
 <body>
 
-<!-- ═══════════ HERO ═══════════ -->
+<!-- ═══ HERO ═══ -->
 <section class="hero">
   <div class="container">
     <div class="hero-badge">⭐ BOOTCAMP LIVE 3 JOURS — 11, 12 ET 13 AVRIL ⭐</div>
-
     <h1>Le protocole exact pour <span class="hl">vivre<br/>du trading en 2026</span></h1>
-
-    <p class="sub">sans risquer ton capital et encaisser des<br/>payouts <span class="hl">de manière prédictive</span></p>
-
+    <p class="sub">sans risquer ton capital et encaisser des<br/>payouts <span class="hl-blue">de manière prédictive</span></p>
     <p class="desc">Un bootcamp destiné aux personnes qui veulent faire du trading une source de revenu <strong>sérieuse, stable et réaliste.</strong></p>
-
-    <a href="https://freeman-academy.com/inscription/" class="btn-yellow">
-      RÉSERVER MA PLACE GRATUITE <span class="date-tag">11, 12 et 13 avril</span>
-    </a>
-
+    <a href="https://freeman-academy.com/inscription/" class="btn-yellow">RÉSERVER MA PLACE GRATUITE <span class="date-tag">11, 12 et 13 avril</span></a>
     <div class="social-proof">
-      <div class="avatar-stack">
-        <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2025/06/chaimae.webp" alt="Chaimae" /></div>
-        <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2025/06/gael.webp" alt="Gael" /></div>
-        <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2025/06/almaz.webp" alt="Almaz" /></div>
-        <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/pierre.webp" alt="Pierre" /></div>
-        <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/thomas.webp" alt="Thomas" /></div>
+      <div class="social-proof-row">
+        <div class="avatar-stack">
+          <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2025/06/chaimae.webp" alt="Chaimae"/></div>
+          <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2025/06/gael.webp" alt="Gael"/></div>
+          <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2025/06/almaz.webp" alt="Almaz"/></div>
+          <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/pierre.webp" alt="Pierre"/></div>
+          <div class="avatar"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/thomas.webp" alt="Thomas"/></div>
+        </div>
+        <span class="stars-row">★★★★★</span>
       </div>
-      <span class="stars-row">★★★★★</span>
       <span class="label">Rejoignez les traders d'élite</span>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ PROGRAMME 3 JOURS ═══════════ -->
+<!-- ═══ PROGRAMME ═══ -->
 <section class="program">
   <div class="container">
     <p class="section-label reveal">⭐ LA MÉTHODOLOGIE EXACTE ⭐</p>
     <h2 class="reveal">3 jours pour devenir un trader <span class="hl">confiant et rentable</span></h2>
     <p class="program-sub reveal">On trade ensemble, lecture institutionnelle et algorithme prédictif :</p>
     <p class="program-sub2 reveal">Voici ce que vous allez maîtriser en 3 jours :</p>
-
     <div class="days-grid">
-      <!-- JOUR 1 -->
       <div class="day-card reveal">
         <div class="day-date">11 AVRIL</div>
         <div class="day-header">
-          <div class="day-icon">
-            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
+          <div class="day-icon"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
           <div class="day-title">Lecture institutionnelle et plan d'action</div>
         </div>
         <ul class="day-points">
-          <li><span class="star">⭐</span> La vraie analyse technique institutionnelle (jamais enseignée publiquement).</li>
-          <li><span class="star">⭐</span> Comment anticiper le mouvement du prix et entrer au meilleur moment.</li>
-          <li><span class="star">⭐</span> Le plan d'action exact pour devenir trader rentable (applicable même en débutant).</li>
+          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span> La vraie analyse technique institutionnelle (jamais enseignée publiquement).</li>
+          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span> Comment anticiper le mouvement du prix et entrer au meilleur moment.</li>
+          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span> Le plan d'action exact pour devenir trader rentable (applicable même en débutant).</li>
         </ul>
       </div>
-      <!-- JOUR 2 -->
       <div class="day-card reveal">
         <div class="day-date">12 AVRIL</div>
         <div class="day-header">
-          <div class="day-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
+          <div class="day-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
           <div class="day-title">Prop Firms et stratégie mécanique</div>
         </div>
         <ul class="day-points">
-          <li><span class="star">⭐</span> Comment vivre du trading sans capital grâce aux prop firms</li>
-          <li><span class="star">⭐</span> La stratégie mécanique pour valider des challenges 100k / 200k+ sans émotions et à chaque essai</li>
-          <li><span class="star">⭐</span> La méthode pour enchaîner les payouts et augmenter son financement.</li>
+          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span> Comment vivre du trading sans capital grâce aux prop firms</li>
+          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span> La stratégie mécanique pour valider des challenges 100k / 200k+ sans émotions et à chaque essai</li>
+          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span> La méthode pour enchaîner les payouts et augmenter son financement.</li>
         </ul>
       </div>
-      <!-- JOUR 3 -->
       <div class="day-card reveal">
         <div class="day-date">13 AVRIL</div>
         <div class="day-header">
-          <div class="day-icon">
-            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-          </div>
+          <div class="day-icon"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
           <div class="day-title">Algorithme et résultats prédictifs</div>
         </div>
         <ul class="day-points">
-          <li><span class="star">⭐</span> L'algo qui augmente drastiquement le taux de réussite de vos trades.</li>
-          <li><span class="star">⭐</span> Comment rendre vos résultats prédictifs au lieu d'espérer un bon trade.</li>
-          <li><span class="star">⭐</span> Les outils internes pour exploiter les informations cachées du marché.</li>
+          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span> L'algo qui augmente drastiquement le taux de réussite de vos trades.</li>
+          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span> Comment rendre vos résultats prédictifs au lieu d'espérer un bon trade.</li>
+          <li><span class="star-icon"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></span> Les outils internes pour exploiter les informations cachées du marché.</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ PREUVES / CERTIFICATS CAROUSEL ═══════════ -->
+<!-- ═══ CERTIFICATS ═══ -->
 <section class="proofs">
   <div class="container">
     <p class="section-label reveal">⭐ PREUVES DE NOS ÉTUDIANTS ⭐</p>
     <h2 class="reveal">Rejoignez les traders d'élite <span class="hl">que nous avons formé</span></h2>
-
-    <div class="certs-carousel-wrapper reveal" id="certCarousel">
-      <div class="certs-track" id="certTrack">
-        <div class="cert-slide">
-          <img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-mucahid.webp" alt="Certificat Mucahid" />
-          <span class="cert-label"><span class="check-circle">✓</span> Challenge validé</span>
-        </div>
-        <div class="cert-slide">
-          <img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-edmond.webp" alt="Certificat Edmond" />
-          <span class="cert-label"><span class="check-circle">✓</span> Challenge validé</span>
-        </div>
-        <div class="cert-slide">
-          <img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-tolunay.webp" alt="Certificat Tolunay" />
-          <span class="cert-label"><span class="check-circle">✓</span> Challenge validé</span>
-        </div>
-        <div class="cert-slide">
-          <img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-ftmo-nourdin.webp" alt="Certificat Nourdin FTMO" />
-          <span class="cert-label"><span class="check-circle">✓</span> Challenge validé</span>
-        </div>
-        <div class="cert-slide">
-          <img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-gael.webp" alt="Certificat Gael" />
-          <span class="cert-label"><span class="check-circle">✓</span> Challenge validé</span>
-        </div>
-        <div class="cert-slide">
-          <img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-komi.webp" alt="Certificat Komi" />
-          <span class="cert-label"><span class="check-circle">✓</span> Challenge validé</span>
-        </div>
-        <div class="cert-slide">
-          <img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-serpil.webp" alt="Certificat Serpil" />
-          <span class="cert-label"><span class="check-circle">✓</span> Challenge validé</span>
-        </div>
-        <div class="cert-slide">
-          <img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-portfolio-manager-serpil.webp" alt="Certificat Portfolio Manager Serpil" />
-          <span class="cert-label"><span class="check-circle">✓</span> Challenge validé</span>
-        </div>
-        <div class="cert-slide">
-          <img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-yaniss.webp" alt="Certificat Yaniss" />
-          <span class="cert-label"><span class="check-circle">✓</span> Challenge validé</span>
-        </div>
+    <div class="carousel-wrapper reveal" id="certWrap">
+      <div class="carousel-track" id="certTrack">
+        <div class="cert-slide"><div class="cert-img-wrap"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-mucahid.webp" alt="Mucahid"/></div><span class="cert-label"><span class="check-circle">✓</span> Challenge TOPSTEP validé</span></div>
+        <div class="cert-slide"><div class="cert-img-wrap"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-edmond.webp" alt="Edmond"/></div><span class="cert-label"><span class="check-circle">✓</span> Challenge TOPSTEP validé</span></div>
+        <div class="cert-slide"><div class="cert-img-wrap"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-tolunay.webp" alt="Tolunay"/></div><span class="cert-label"><span class="check-circle">✓</span> Challenge TOPSTEP validé</span></div>
+        <div class="cert-slide"><div class="cert-img-wrap"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-ftmo-nourdin.webp" alt="Nourdin"/></div><span class="cert-label"><span class="check-circle">✓</span> Challenge FTMO validé</span></div>
+        <div class="cert-slide"><div class="cert-img-wrap"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-gael.webp" alt="Gael"/></div><span class="cert-label"><span class="check-circle">✓</span> Challenge TOPSTEP validé</span></div>
+        <div class="cert-slide"><div class="cert-img-wrap"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-komi.webp" alt="Komi"/></div><span class="cert-label"><span class="check-circle">✓</span> Challenge TOPSTEP validé</span></div>
+        <div class="cert-slide"><div class="cert-img-wrap"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-serpil.webp" alt="Serpil"/></div><span class="cert-label"><span class="check-circle">✓</span> Challenge TOPSTEP validé</span></div>
+        <div class="cert-slide"><div class="cert-img-wrap"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-portfolio-manager-serpil.webp" alt="Serpil PM"/></div><span class="cert-label"><span class="check-circle">✓</span> Portfolio Manager validé</span></div>
+        <div class="cert-slide"><div class="cert-img-wrap"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/certificat-yaniss.webp" alt="Yaniss"/></div><span class="cert-label"><span class="check-circle">✓</span> Challenge TOPSTEP validé</span></div>
       </div>
     </div>
-
-    <div class="carousel-nav" id="certDots"></div>
-
+    <div class="carousel-dots" id="certDots"></div>
     <div class="cta-center">
-      <a href="https://freeman-academy.com/inscription/" class="btn-yellow">
-        RÉSERVER MA PLACE GRATUITE <span class="date-tag">11, 12 et 13 avril</span>
-      </a>
+      <a href="https://freeman-academy.com/inscription/" class="btn-yellow">RÉSERVER MA PLACE GRATUITE <span class="date-tag">11, 12 et 13 avril</span></a>
       <span class="cta-sub-label">Rejoignez les traders d'élite</span>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ TEAM CTA ═══════════ -->
+<!-- ═══ TEAM ═══ -->
 <section class="team-cta">
   <div class="container">
     <div class="team-card reveal">
-      <div class="team-img">
-        <img src="https://freeman-academy.com/wp-content/uploads/2026/01/formation-trading-freeman.webp" alt="Équipe Freeman Academy" />
-      </div>
+      <div class="team-img"><img src="https://freeman-academy.com/wp-content/uploads/2026/01/formation-trading-freeman.webp" alt="Équipe Freeman Academy"/></div>
       <div class="team-content">
         <h3>Candidater pour une <span class="hl">place offerte</span></h3>
         <p>Remplissez le formulaire pour rejoindre notre prochain bootcamp exclusif.</p>
@@ -501,172 +273,162 @@
   </div>
 </section>
 
-<!-- ═══════════ VIDEO TESTIMONIALS ═══════════ -->
+<!-- ═══ VIDEOS ═══ -->
 <section class="video-section">
   <div class="container">
     <h2 class="reveal">Écoutez quelques retours <span class="hl">de nos étudiants</span></h2>
-
-    <div class="video-carousel-wrapper reveal" id="vidCarousel">
-      <div class="video-track" id="vidTrack">
-        <div class="video-slide" id="vs0">
-          <iframe src="https://player.vimeo.com/video/1156015455?h=dbc93cfc20" allow="autoplay; fullscreen" allowfullscreen></iframe>
-        </div>
-        <div class="video-slide active" id="vs1">
-          <iframe src="https://player.vimeo.com/video/1156011162?h=01566d5dd6" allow="autoplay; fullscreen" allowfullscreen></iframe>
-        </div>
-        <div class="video-slide" id="vs2">
-          <iframe src="https://player.vimeo.com/video/1156011647?h=61d4d271f1" allow="autoplay; fullscreen" allowfullscreen></iframe>
-        </div>
-        <div class="video-slide" id="vs3">
-          <iframe src="https://player.vimeo.com/video/1156013587?h=9da5005604" allow="autoplay; fullscreen" allowfullscreen></iframe>
-        </div>
+    <div class="carousel-wrapper reveal" id="vidWrap">
+      <div class="carousel-track" id="vidTrack">
+        <div class="vid-slide"><iframe src="https://player.vimeo.com/video/1156015455?h=dbc93cfc20" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+        <div class="vid-slide"><iframe src="https://player.vimeo.com/video/1156011162?h=01566d5dd6" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+        <div class="vid-slide"><iframe src="https://player.vimeo.com/video/1156011647?h=61d4d271f1" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
+        <div class="vid-slide"><iframe src="https://player.vimeo.com/video/1156013587?h=9da5005604" allow="autoplay; fullscreen" allowfullscreen loading="lazy"></iframe></div>
       </div>
     </div>
-
     <div class="vid-nav">
-      <button class="nav-arrow" onclick="moveVid(-1)">‹</button>
+      <button class="nav-arrow" id="vidPrev">‹</button>
       <div class="vid-dots" id="vidDots"></div>
-      <button class="nav-arrow" onclick="moveVid(1)">›</button>
+      <button class="nav-arrow" id="vidNext">›</button>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ FAQ ═══════════ -->
+<!-- ═══ FAQ ═══ -->
 <section class="faq">
   <div class="container">
     <p class="section-label reveal">⭐ FAQ ⭐</p>
     <h2 class="reveal">Réponses aux questions <span class="hl">que vous vous posez</span></h2>
     <div class="faq-list">
       <div class="faq-item reveal">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          <span>Est-ce que c'est adapté si je suis débutant ?</span>
-          <span class="chevron">▼</span>
-        </div>
-        <div class="faq-answer"><div class="faq-answer-inner">
-          Absolument ! Le Bootcamp est conçu pour tous les niveaux, du débutant complet au trader intermédiaire. La méthodologie est expliquée étape par étape, de façon claire et structurée, pour que chacun puisse progresser à son rythme et obtenir des résultats concrets dès les premiers jours.
-        </div></div>
+        <div class="faq-question" onclick="toggleFaq(this)"><span>Est-ce que c'est adapté si je suis débutant ?</span><span class="chevron">▼</span></div>
+        <div class="faq-answer"><div class="faq-answer-inner">Absolument ! Le Bootcamp est conçu pour tous les niveaux, du débutant complet au trader intermédiaire. La méthodologie est expliquée étape par étape, de façon claire et structurée, pour que chacun puisse progresser à son rythme et obtenir des résultats concrets dès les premiers jours.</div></div>
       </div>
       <div class="faq-item reveal">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          <span>Et si j'ai un travail et peu de temps ?</span>
-          <span class="chevron">▼</span>
-        </div>
-        <div class="faq-answer"><div class="faq-answer-inner">
-          La méthode Freeman est spécialement pensée pour les personnes actives. Tu n'as besoin que de 1 à 2 heures par jour pour appliquer la stratégie. Le bootcamp se déroule en soirée pour être compatible avec ton emploi du temps professionnel.
-        </div></div>
+        <div class="faq-question" onclick="toggleFaq(this)"><span>Et si j'ai un travail et peu de temps ?</span><span class="chevron">▼</span></div>
+        <div class="faq-answer"><div class="faq-answer-inner">Notre protocole a été utilisé par des personnes avec une vie active : salariés, parents, entrepreneurs… Pour appliquer efficacement la méthode, 2 heures de trading par jour suffisent.</div></div>
       </div>
       <div class="faq-item reveal">
-        <div class="faq-question" onclick="toggleFaq(this)">
-          <span>J'ai déjà une stratégie, mais je ne suis pas rentable. Est-ce que ce Bootcamp est pertinent pour moi ?</span>
-          <span class="chevron">▼</span>
-        </div>
-        <div class="faq-answer"><div class="faq-answer-inner">
-          C'est précisément pour toi que ce bootcamp a été créé. Si tu as déjà une base mais que tu n'arrives pas à être rentable de façon régulière, notre méthodologie structurée, combinée à l'algorithme prédictif et l'accès aux prop firms, te donnera le cadre qui te manque pour passer au niveau supérieur.
-        </div></div>
+        <div class="faq-question" onclick="toggleFaq(this)"><span>J'ai déjà une stratégie, mais je ne suis pas rentable. Est-ce que ce Bootcamp est pertinent pour moi ?</span><span class="chevron">▼</span></div>
+        <div class="faq-answer"><div class="faq-answer-inner">C'est précisément pour toi que ce bootcamp a été créé. Si tu as déjà une base mais que tu n'arrives pas à être rentable de façon régulière, notre méthodologie structurée, combinée à l'algorithme prédictif et l'accès aux prop firms, te donnera le cadre qui te manque pour passer au niveau supérieur.</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════ FINAL CTA ═══════════ -->
+<!-- ═══ FINAL CTA ═══ -->
 <section class="final-cta">
   <div class="container">
     <div class="stars-top reveal">★ ★ ★</div>
     <h2 class="reveal">Prêt à devenir un <span class="hl">trader rentable<br/>en 2026</span> ?</h2>
     <p class="final-sub reveal">Rejoignez les traders d'élite que nous avons formé.</p>
-    <a href="https://freeman-academy.com/inscription/" class="btn-yellow reveal">
-      RÉSERVER MA PLACE GRATUITE <span class="arrow">→</span>
-    </a>
+    <a href="https://freeman-academy.com/inscription/" class="btn-yellow reveal">RÉSERVER MA PLACE GRATUITE <span class="arrow">→</span></a>
     <span class="date-label reveal">11, 12 et 13 avril</span>
     <div class="stars-bottom reveal">★ ★ ★ ★ ★</div>
   </div>
 </section>
 
 <script>
-  // ── FAQ ──
-  function toggleFaq(el) {
-    const item = el.closest('.faq-item');
-    const wasOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!wasOpen) item.classList.add('open');
+// ── FAQ ──
+function toggleFaq(el){
+  const item=el.closest('.faq-item'),wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
+}
+
+// ── Drag Carousel Engine ──
+function initCarousel(wrapId,trackId,dotsId,perPage,loop,autoMs){
+  const wrap=document.getElementById(wrapId);
+  const track=document.getElementById(trackId);
+  const dotsC=document.getElementById(dotsId);
+  const slides=[...track.children];
+  const total=slides.length;
+  if(!total)return;
+
+  let page=0,startX=0,currentX=0,isDragging=false,animId=null;
+  const gap=20;
+
+  function slideW(){return slides[0].offsetWidth+gap}
+  function maxPage(){return Math.max(0,total-perPage)}
+
+  // Build dots
+  if(dotsC){
+    dotsC.innerHTML='';
+    for(let i=0;i<=maxPage();i++){
+      const d=document.createElement('button');
+      d.className='dot'+(i===0?' active':'');
+      d.onclick=()=>goTo(i);
+      dotsC.appendChild(d);
+    }
   }
 
-  // ── Certificate Carousel ──
-  const certTrack = document.getElementById('certTrack');
-  const certSlides = certTrack.querySelectorAll('.cert-slide');
-  const certDotsContainer = document.getElementById('certDots');
-  let certPage = 0;
-  const certPerPage = window.innerWidth <= 768 ? 1 : 3;
-  const certTotalPages = Math.ceil(certSlides.length / certPerPage);
-
-  for (let i = 0; i < certTotalPages; i++) {
-    const dot = document.createElement('button');
-    dot.className = 'dot' + (i === 0 ? ' active' : '');
-    dot.onclick = () => goToCertPage(i);
-    certDotsContainer.appendChild(dot);
+  function updateDots(){
+    if(!dotsC)return;
+    dotsC.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===page));
   }
 
-  function goToCertPage(page) {
-    certPage = page;
-    const slideW = certSlides[0].offsetWidth + 20;
-    certTrack.style.transform = `translateX(-${page * certPerPage * slideW}px)`;
-    certDotsContainer.querySelectorAll('.dot').forEach((d, i) =>
-      d.classList.toggle('active', i === page));
+  function goTo(p){
+    if(loop){page=(p%total+total)%total;if(page>maxPage())page=0;}
+    else{page=Math.max(0,Math.min(p,maxPage()));}
+    track.style.transform=`translateX(-${page*slideW()}px)`;
+    updateDots();
   }
 
-  // Auto-advance certificates
-  setInterval(() => {
-    goToCertPage((certPage + 1) % certTotalPages);
-  }, 4000);
-
-  // ── Video Carousel ──
-  const vidTrack = document.getElementById('vidTrack');
-  const vidSlides = vidTrack.querySelectorAll('.video-slide');
-  const vidDotsContainer = document.getElementById('vidDots');
-  let vidPage = 0;
-  const vidPerPage = window.innerWidth <= 768 ? 1 : 3;
-  const vidTotalPages = Math.max(1, vidSlides.length - (vidPerPage - 1));
-
-  for (let i = 0; i < vidTotalPages; i++) {
-    const dot = document.createElement('button');
-    dot.className = 'dot' + (i === 0 ? ' active' : '');
-    dot.onclick = () => goToVidPage(i);
-    vidDotsContainer.appendChild(dot);
+  // Drag
+  function onStart(e){
+    if(e.target.closest('iframe'))return;
+    isDragging=true;wrap.classList.add('dragging');
+    startX=e.type.includes('mouse')?e.pageX:e.touches[0].pageX;
+    currentX=startX;
+  }
+  function onMove(e){
+    if(!isDragging)return;
+    currentX=e.type.includes('mouse')?e.pageX:e.touches[0].pageX;
+    const diff=currentX-startX;
+    track.style.transform=`translateX(${-page*slideW()+diff}px)`;
+  }
+  function onEnd(){
+    if(!isDragging)return;
+    isDragging=false;wrap.classList.remove('dragging');
+    const diff=currentX-startX;
+    const threshold=slideW()*0.2;
+    if(diff<-threshold)goTo(page+1);
+    else if(diff>threshold)goTo(page-1);
+    else goTo(page);
   }
 
-  function updateVidActive() {
-    vidSlides.forEach((s, i) => {
-      const center = vidPage + Math.floor(vidPerPage / 2);
-      s.classList.toggle('active', i === center || vidPerPage === 1);
-    });
+  wrap.addEventListener('mousedown',onStart);
+  wrap.addEventListener('mousemove',onMove);
+  wrap.addEventListener('mouseup',onEnd);
+  wrap.addEventListener('mouseleave',onEnd);
+  wrap.addEventListener('touchstart',onStart,{passive:true});
+  wrap.addEventListener('touchmove',onMove,{passive:true});
+  wrap.addEventListener('touchend',onEnd);
+
+  // Auto
+  if(autoMs){
+    let timer=setInterval(()=>goTo(page+1),autoMs);
+    wrap.addEventListener('mouseenter',()=>clearInterval(timer));
+    wrap.addEventListener('mouseleave',()=>{timer=setInterval(()=>goTo(page+1),autoMs)});
   }
 
-  function goToVidPage(page) {
-    vidPage = Math.max(0, Math.min(page, vidSlides.length - vidPerPage));
-    const slideW = vidSlides[0].offsetWidth + 20;
-    vidTrack.style.transform = `translateX(-${vidPage * slideW}px)`;
-    vidDotsContainer.querySelectorAll('.dot').forEach((d, i) =>
-      d.classList.toggle('active', i === vidPage));
-    updateVidActive();
-  }
+  return{goTo,next:()=>goTo(page+1),prev:()=>goTo(page-1)};
+}
 
-  function moveVid(dir) {
-    goToVidPage(vidPage + dir);
-  }
+// Init carousels
+const certPerPage=window.innerWidth<=768?1:3;
+initCarousel('certWrap','certTrack','certDots',certPerPage,true,4000);
 
-  updateVidActive();
+const vidPerPage=window.innerWidth<=768?1:3;
+const vidC=initCarousel('vidWrap','vidTrack','vidDots',vidPerPage,true,0);
+document.getElementById('vidPrev').onclick=()=>vidC.prev();
+document.getElementById('vidNext').onclick=()=>vidC.next();
 
-  // ── Scroll Reveal ──
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-  reveals.forEach(el => observer.observe(el));
+// ── Scroll Reveal ──
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}});
+},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+reveals.forEach(el=>observer.observe(el));
 </script>
 
 </body>
