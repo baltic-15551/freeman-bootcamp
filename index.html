@@ -150,6 +150,20 @@
     .final-cta .date-label{display:block;margin-top:14px;color:var(--yellow);font-size:15px;font-weight:600}
     .final-cta .stars-bottom{margin-top:24px;color:var(--yellow);font-size:18px;letter-spacing:4px}
 
+    /* ══ HEADER ══ */
+    .site-header{padding:24px 0;text-align:center;border-bottom:1px solid rgba(255,255,255,0.06)}
+    .site-header img{height:70px;width:auto;opacity:.9;transition:opacity .3s}
+    .site-header img:hover{opacity:1}
+
+    /* ══ FOOTER ══ */
+    .site-footer{padding:60px 0 36px;text-align:center;background:#050710;border-top:1px solid rgba(255,255,255,0.06)}
+    .site-footer .footer-logo{margin-bottom:32px}
+    .site-footer .footer-logo img{height:60px;width:auto;opacity:.7}
+    .site-footer .disclaimer{font-size:12px;color:var(--gray-d);max-width:850px;margin:0 auto 28px;line-height:1.7}
+    .site-footer .legal-links{display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+    .site-footer .legal-links a{font-size:13px;color:var(--gray-d);text-decoration:none;transition:color .3s}
+    .site-footer .legal-links a:hover{color:var(--yellow)}
+
     @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
     @keyframes fadeDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
     .reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.16,1,.3,1)}
@@ -199,6 +213,11 @@
   </style>
 </head>
 <body>
+
+<!-- ═══ HEADER ═══ -->
+<header class="site-header">
+  <a href="https://freeman-academy.com/"><img src="https://freeman-academy.com/wp-content/uploads/2025/06/logo-freeman-transparent.png" alt="Freeman Academy" loading="eager"/></a>
+</header>
 
 <!-- ═══ HERO ═══ -->
 <section class="hero">
@@ -344,6 +363,21 @@
     <div class="stars-bottom reveal">★ ★ ★ ★ ★</div>
   </div>
 </section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-logo">
+      <img src="https://freeman-academy.com/wp-content/uploads/2025/06/logo-freeman-transparent.png" alt="Freeman Academy" loading="lazy"/>
+    </div>
+    <p class="disclaimer">Ce site n'appartient pas à Facebook™, TikTok™ ou Google™. Il n'est en aucun cas sponsorisé, validé ou affilié à Facebook™, TikTok™ ou Google™. FACEBOOK™ est une marque déposée de Meta Platforms, Inc. TIKTOK™ est une marque déposée de ByteDance Ltd. GOOGLE™ est une marque déposée de Google LLC. Les témoignages et exemples présentés sur ce site reflètent des expériences réelles de nos étudiants, mais ils sont exceptionnels et ne doivent pas être considérés comme des promesses ou garanties de résultats. La réussite en trading dépend toujours de nombreux facteurs : ton engagement personnel, ton sérieux, ton niveau d'expérience, ton respect du plan enseigné, la conjoncture des marchés et les risques normaux (et imprévus) liés au trading. Nous ne pouvons en aucun cas garantir que tu obtiendras les mêmes résultats que ceux mentionnés. Tes propres résultats peuvent varier significativement. Le Bootcamp « Objectif Freeman », ses formateurs et ses partenaires déclinent toute responsabilité quant à tes décisions et à tes résultats. Tu es seul responsable de tes choix, actions et de leur application. Avant d'appliquer une stratégie, il est recommandé de bien analyser ta situation et, si nécessaire, de consulter un professionnel agréé.</p>
+    <div class="legal-links">
+      <a href="https://freeman-academy.com/politique-de-confidentialite/">Politique de confidentialité</a>
+      <a href="https://freeman-academy.com/conditions-generales/">Conditions générales d'utilisation</a>
+      <a href="https://freeman-academy.com/mentions-legales/">Mentions légales</a>
+    </div>
+  </div>
+</footer>
 
 <script>
 function toggleFaq(el){const i=el.closest('.faq-item'),o=i.classList.contains('open');document.querySelectorAll('.faq-item').forEach(x=>x.classList.remove('open'));if(!o)i.classList.add('open')}
